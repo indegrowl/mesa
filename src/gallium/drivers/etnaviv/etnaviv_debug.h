@@ -46,6 +46,7 @@ enum etna_dbg {
    ETNA_DBG_ML_MSGS         = BITFIELD_BIT(8),
 
    /* Bypasses */
+   ETNA_DBG_NO_LINEAR_PE    = BITFIELD_BIT(9),  /* Disable linear PE */
    ETNA_DBG_NO_TS           = BITFIELD_BIT(12), /* Disable TS */
    ETNA_DBG_NO_AUTODISABLE  = BITFIELD_BIT(13), /* Disable autodisable */
    ETNA_DBG_NO_SUPERTILE    = BITFIELD_BIT(14), /* Disable supertile */
