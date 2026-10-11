@@ -77,7 +77,6 @@ static const struct debug_named_value etna_debug_options[] = {
    {"no_singlebuffer",ETNA_DBG_NO_SINGLEBUF, "Disable single buffer feature"},
    {"deqp",           ETNA_DBG_DEQP, "Hacks to run dEQP GLES3 tests"}, /* needs MESA_GLES_VERSION_OVERRIDE=3.0 */
    {"nocache",        ETNA_DBG_NOCACHE,    "Disable shader cache"},
-   {"linear_pe",      ETNA_DBG_LINEAR_PE, "Enable linear PE"},
    {"no_linear_pe",   ETNA_DBG_NO_LINEAR_PE, "Disable linear PE"},
    {"no_msaa",        ETNA_DBG_NO_MSAA, "Disable MSAA support"},
    {"shared_ts",      ETNA_DBG_SHARED_TS, "Enable TS sharing"},
@@ -1079,7 +1078,7 @@ etna_screen_create(struct etna_device *dev, struct etna_gpu *gpu,
       etna_core_disable_feature(screen->info, ETNA_FEATURE_SUPER_TILED);
    if (DBG_ENABLED(ETNA_DBG_NO_SINGLEBUF))
       etna_core_disable_feature(screen->info, ETNA_FEATURE_SINGLE_BUFFER);
-   if (!DBG_ENABLED(ETNA_DBG_LINEAR_PE) || DBG_ENABLED(ETNA_DBG_NO_LINEAR_PE))
+   if (DBG_ENABLED(ETNA_DBG_NO_LINEAR_PE))
       etna_core_disable_feature(screen->info, ETNA_FEATURE_LINEAR_PE);
 
    etna_get_specs(screen);
